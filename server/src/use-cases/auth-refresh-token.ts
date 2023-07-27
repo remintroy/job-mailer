@@ -23,7 +23,21 @@ export default async function refreshAccessToken(
   await userRepository.edit(userData.uid, { lastRefresh: new Date() });
   await tokensRepository.incrimentRefershCount(data?.refreshToken);
 
-  return {
-    accessToken,
+  const userDataResponse: UserDataResponse = {
+    email: userData?.email,
+    uid: userData?.uid,
+    name: userData?.name,
+    phone: userData?.phone,
+    portfolio: userData?.portfolio,
+    expectedSalary: userData?.expectedSalary,
+    disabled: userData?.disabled,
+    hasAppEmail: userData?.app_email?.length >= 4,
+    hasAppPassword: userData?.app_passw?.length >= 4,
+    tokens: {
+      accessToken,
+      refreshToken: null,
+    },
   };
+
+  return userDataResponse;
 }

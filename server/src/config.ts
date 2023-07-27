@@ -9,7 +9,7 @@ export default function getConfig() {
     baserUrls: {
       user: "/",
     },
-    port: process.env.PORT || 3000,
+    port: process.env.PORT || 3001,
     mongodb: {
       url: process.env.MONGODB_URL,
       db: process.env.MONGODB_DB || SERVER_NAME,
@@ -18,7 +18,7 @@ export default function getConfig() {
       logStyle: "dev",
     },
     cors: {
-      origin: ["http://localhost:3001"],
+      origin: ["*", "http://localhost:3001"],
       credentials: true,
     },
     auth: {

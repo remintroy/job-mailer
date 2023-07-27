@@ -2,7 +2,6 @@ import UserRepository from "../../../adaptor/repository/userRepository";
 import UserModel from "../models/user";
 
 export default class UserRepositoryImpl implements UserRepository {
-  // CRED
   add(userData: User) {
     return new UserModel(userData).save();
   }
