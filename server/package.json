@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "node bundle.js",
+    "dev": "nodemon --exec \"esbuild --bundle --platform=node --log-level=error --outdir=build src/index.ts && node build/index.js\" src/index.ts",
     "build": "esbuild --bundle --platform=node --outdir=build src/index.ts"
   },
   "keywords": [],
